@@ -81,7 +81,7 @@ public class RegisterActivity extends AppCompatActivity {
         u.setNombre(nombre);
         u.setEmail(email);
         u.setContrasena(pass);
-        u.setId_rol(rol);
+        u.setIdRol(rol);
 
 
         // PETICIÓN A SUPABASE

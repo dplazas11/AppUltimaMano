@@ -13,16 +13,11 @@ import retrofit2.http.Query;
 
 public interface SupabaseApi {
 
-    @Headers({
-            "apikey: sb_publishable_MAG00PmJHKo6Zmf3Cr89-Q_A84xF3Ut",
-            "Authorization: Bearer sb_publishable_MAG00PmJHKo6Zmf3Cr89-Q_A84xF3Ut",
-            "Content-Type: application/json"
-
-    })
 
     @GET("usuario")
     Call<List<usuario>> loginUser(
-            @Query("email") String email
+            @Query("select") String select,
+            @Query("email") String emailEq
     );
 
     @POST("usuario")

@@ -1,19 +1,36 @@
 package com.example.ultimamano.models;
 
+import com.google.gson.annotations.SerializedName;
+
 public class usuario {
 
+    @SerializedName("id_usuario")
+    private int idUsuario;
 
+    @SerializedName("nombre")
     private String nombre;
 
+    @SerializedName("email")
     private String email;
 
+    @SerializedName("contrasena")
     private String contrasena;
 
-    private int id_rol;
+    @SerializedName("id_rol")
+    private int idRol;
 
     public usuario() {
     }
 
+    // GETTERS Y SETTERS
+
+    public int getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
+    }
 
     public String getNombre() {
         return nombre;
@@ -39,22 +56,22 @@ public class usuario {
         this.contrasena = contrasena;
     }
 
-    public int getId_rol() {
-        return id_rol;
+    public int getIdRol() {
+        return idRol;
     }
 
-    public void setId_rol(int id_rol) {
-        this.id_rol = id_rol;
+    public void setIdRol(int idRol) {
+        this.idRol = idRol;
     }
-
-
 
     @Override
     public String toString() {
         return "Usuario{" +
+                "idUsuario=" + idUsuario +
                 ", nombre='" + nombre + '\'' +
-                ", correo='" + email + '\'' +
-                ", id_rol=" + id_rol +
+                ", email='" + email + '\'' +
+                ", contrasena='" + contrasena + '\'' +
+                ", idRol=" + idRol +
                 '}';
     }
 }

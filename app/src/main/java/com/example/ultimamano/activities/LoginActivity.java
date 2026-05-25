@@ -17,6 +17,7 @@ import com.example.ultimamano.network.SupabaseApi;
 
 import java.util.List;
 
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -62,53 +63,43 @@ public class LoginActivity extends AppCompatActivity {
             return;
         }
 
-        api.loginUser(email).enqueue(new Callback<List<usuario>>() {
+        api.loginUser("*", "eq." + email).enqueue(new Callback<List<usuario>>() {
 
             @Override
             public void onResponse(Call<List<usuario>> call, Response<List<usuario>> response) {
 
-                if (response.isSuccessful() && response.body() != null && !response.body().isEmpty()) {
+                if (response.isSuccessful()
+                        && response.body() != null
+                        && !response.body().isEmpty()) {
 
                     usuario u = response.body().get(0);
 
-                    if (u.getContrasena().equals(pass)) {
+                    // ✅ Invertido para evitar NullPointerException
+                    if (pass.equals(u.getContrasena())) {
 
-                        Toast.makeText(LoginActivity.this,
-                                "Login exitoso",
-                                Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, "Bienvenido " + u.getNombre(), Toast.LENGTH_SHORT).show();
 
-                        // REDIRECCIÓN POR ROL
-                        if (u.getId_rol() == 1) {
-
+                        if (u.getIdRol() == 1) {
                             startActivity(new Intent(LoginActivity.this, PlayerHomeActivity.class));
-
-                        } else if (u.getId_rol() == 3) {
-
+                        } else if (u.getIdRol() == 3) {
                             startActivity(new Intent(LoginActivity.this, CasinoHomeActivity.class));
                         }
 
                         finish();
 
                     } else {
-                        Toast.makeText(LoginActivity.this,
-                                "Contraseña incorrecta",
-                                Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, "Contraseña incorrecta", Toast.LENGTH_SHORT).show();
                     }
 
                 } else {
-                    Toast.makeText(LoginActivity.this,
-                            "Usuario no encontrado",
-                            Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "Usuario no encontrado", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<List<usuario>> call, Throwable t) {
                 Log.e("LOGIN_ERROR", t.getMessage());
-
-                Toast.makeText(LoginActivity.this,
-                        "Error de conexión",
-                        Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginActivity.this, "Error de conexión", Toast.LENGTH_SHORT).show();
             }
         });
     }
