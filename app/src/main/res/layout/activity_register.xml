@@ -76,4 +76,30 @@
         android:visibility="gone"
         android:layout_marginTop="10dp"/>
 
+    <!-- DIRECCIÓN -->
+    <EditText
+        android:id="@+id/etDireccion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Dirección casino"
+        android:layout_marginTop="15dp"/>
+
+    <!-- ID CIUDAD -->
+    <EditText
+        android:id="@+id/etCiudad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="ID Ciudad"
+        android:inputType="number"
+        android:layout_marginTop="15dp"/>
+
+    <!-- TIPO CASINO -->
+    <EditText
+        android:id="@+id/etTipoCasino"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="ID Tipo Casino"
+        android:inputType="number"
+        android:layout_marginTop="15dp"/>
+
 </LinearLayout>

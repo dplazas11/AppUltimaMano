@@ -3,6 +3,7 @@ package com.example.ultimamano.network;
 import java.util.List;
 
 import com.example.ultimamano.models.apuesta;
+import com.example.ultimamano.models.casino;
 import com.example.ultimamano.models.usuario;
 
 import okhttp3.ResponseBody;
@@ -33,5 +34,18 @@ public interface SupabaseApi {
 
     @GET("apuesta?select=*")
     Call<List<apuesta>> getApuestas();
+
+    @POST("casino")
+    Call<ResponseBody> registrarCasino(
+            @Body casino casino
+    );
+
+    @GET("usuario")
+    Call<List<usuario>> getUsuarioByEmail(
+            @Query("email") String email
+    );
+
+    @GET("casino?select=direccion,usuario(nombre),ciudad(nombre),tipo_casino(nombre)")
+    Call<List<casino>> getDirectorioCasinos();
 
 }
