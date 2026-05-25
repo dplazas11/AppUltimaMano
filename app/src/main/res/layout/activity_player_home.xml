@@ -1,10 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.PlayerHomeActivity">
+    android:orientation="vertical"
+    android:padding="20dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/tvBienvenida"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:layout_marginTop="50dp"
+        android:text="Bienvenido"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btnCasinos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ver Casinos"/>
+
+    <Button
+        android:id="@+id/btnApuestas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hacer Apuesta"
+        android:layout_marginTop="15dp"/>
+
+    <Button
+        android:id="@+id/btnPresupuesto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Mi Presupuesto"
+        android:layout_marginTop="15dp"/>
+
+    <Button
+        android:id="@+id/btnHistorial"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="Historial" />
+
+    <Button
+        android:id="@+id/btnCerrarSesion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="400dp"
+        android:text="Cerrar Sesión" />
+
+</LinearLayout>

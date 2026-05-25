@@ -1,10 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".activities.BetActivity">
+    android:layout_height="match_parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Registrar Apuesta"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:layout_marginTop="100dp"
+            android:layout_marginBottom="30dp"/>
+
+        <!-- ID JUEGO -->
+        <EditText
+            android:id="@+id/etIdJuego"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="ID del juego"
+            android:inputType="number"/>
+
+        <!-- MONTO APOSTADO -->
+        <EditText
+            android:id="@+id/etMontoApostado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Monto apostado"
+            android:inputType="numberDecimal"
+            android:layout_marginTop="15dp"/>
+
+        <!-- MONTO RESULTADO -->
+        <EditText
+            android:id="@+id/etMontoResultado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Monto resultado"
+            android:inputType="numberDecimal"
+            android:layout_marginTop="15dp"/>
+
+        <!-- FECHA -->
+        <EditText
+            android:id="@+id/etFecha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Fecha (2026-05-24)"
+            android:layout_marginTop="15dp"/>
+
+        <!-- BOTÓN -->
+        <Button
+            android:id="@+id/btnGuardarApuesta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Guardar Apuesta"
+            android:layout_marginTop="30dp"/>
+
+    </LinearLayout>
+
+</ScrollView>

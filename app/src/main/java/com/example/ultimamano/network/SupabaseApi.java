@@ -1,6 +1,8 @@
 package com.example.ultimamano.network;
 
 import java.util.List;
+
+import com.example.ultimamano.models.apuesta;
 import com.example.ultimamano.models.usuario;
 
 import okhttp3.ResponseBody;
@@ -22,5 +24,14 @@ public interface SupabaseApi {
 
     @POST("usuario")
     Call<ResponseBody> registerUser(@Body usuario user);
+
+    @POST("apuesta")
+    Call<ResponseBody> registrarApuesta(
+            @Body apuesta apuesta
+
+    );
+
+    @GET("apuesta?select=*")
+    Call<List<apuesta>> getApuestas();
 
 }
